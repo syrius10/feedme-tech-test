@@ -1,0 +1,35 @@
+<html ng-app="feedMeApp" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Feed Me App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-cookies.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/styles/style.css"/>
+    <script src="/scripts/controller.js"></script>
+</head>
+<body ng-controller="FeedMeCtrl">
+
+<div class="test">
+    <a class="testItem" ng-click="runProcess(true)">START Feed Process</a>
+    <a class="testItem" ng-click="getFixtures()">Show Persisted Fixtures</a>
+    <a class="testItem" ng-click="runProcess(false)">Abort Feed Process</a>
+</div>
+
+<div class="container" ng-show="processing == true">
+    <div class="loader"></div>
+</div>
+
+<div>
+    <div ng-repeat="feed in feeds">
+        {{feed}}
+    </div>
+    <div ng-show="error != null">
+        {{error}}
+    </div>
+</div>
+</body>
+</html>
